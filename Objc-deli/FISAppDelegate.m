@@ -15,14 +15,21 @@
     NSString *customerLine = @"";
     
     if ([deliLine count] < 1) {
+        
         customerLine = @"The line is currently empty.";
+        
     } else {
+        
         customerLine = @"The line is:";
-        for (NSUInteger i = 0; i < [deliLine count]; i++) {
-            NSUInteger linePlace = i + 1;
-            NSString *customerName = deliLine[i];
-            customerLine = [customerLine stringByAppendingFormat:@"\n%lu. %@", linePlace, customerName];
+        
+        NSUInteger index = 0;
+        for (NSString *customer in deliLine) {
+            
+            index += 1;
+            customerLine = [customerLine stringByAppendingFormat:@"\n%lu. %@", index, customer];
+            
         }
+        
     }
     
     return customerLine;
@@ -36,7 +43,9 @@
     
     NSString *customerName = deliLine[0];
     [deliLine removeObjectAtIndex:0];
+    
     return customerName;
+    
 }
 
 
